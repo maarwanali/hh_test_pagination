@@ -1,0 +1,13 @@
+version: '3'
+services:
+  dev-db:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecrectpassword
+      POSTGRES_DB: test_pagination
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    restart: always
